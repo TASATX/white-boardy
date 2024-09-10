@@ -5,6 +5,10 @@
         "lucide",
         "nextjs",
         "tailwindcss",
-        "trpc"
+        "trpc",
+        "zustand"
+    ],
+    "cSpell.ignoreWords": [
+        "Boardy"
     ]
 }
