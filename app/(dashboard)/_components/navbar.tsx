@@ -1,6 +1,6 @@
 'use client';
 
-import { UserButton } from '@clerk/nextjs';
+import { Button } from "@/components/ui/button";
 
 export const Navbar  = () => {
     return (
@@ -9,7 +9,7 @@ export const Navbar  = () => {
             { /* TODO : Add Search */ }
             Search
         </div>
-           <UserButton />
+           <Button />
        </div>
     );
 };
