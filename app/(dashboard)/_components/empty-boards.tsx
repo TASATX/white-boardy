@@ -1,7 +1,24 @@
-import { Button } from '@/components/ui/button';
+'use client';
+
+import { useMutation } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { useOrganization } from '@clerk/clerk-react';
 
 export const EmptyBoards =() => {
+    const { organization } = useOrganization();
+    const create = useMutation(api.board.create);
+
+    const onClick = () => {
+        if (!organization) return;
+
+        create({
+          orgId:   organization.id,
+          title: 'Untitled'
+        });
+    };
+
     return (
         <div className='h-full flex flex-col items-center justify-center'>
         <Image
@@ -17,7 +34,7 @@ export const EmptyBoards =() => {
             Start by creating a board for your Organization.
         </p>
         <div className="mt-6 ">
-            <Button size='lg'>
+            <Button onClick={onClick} size='lg'>
                 Create Board
             </Button>
         </div>
